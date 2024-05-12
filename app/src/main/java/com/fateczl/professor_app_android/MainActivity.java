@@ -14,6 +14,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.fateczl.professor_app_android.model.ProfessorHorista;
+import com.fateczl.professor_app_android.model.ProfessorTitular;
+
 public class MainActivity extends AppCompatActivity {
 
     private RadioButton rbTitular;
@@ -24,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
     private EditText nValorHorista;
     private Button btnCalc;
     private TextView saida;
+
+    ProfessorHorista horista=new ProfessorHorista();
+    ProfessorTitular titular=new ProfessorTitular();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,10 +95,10 @@ public class MainActivity extends AppCompatActivity {
     private void calcHorista() {
         String texto;
         texto = nHoras.getText().toString();
-        Double horas= Double.parseDouble(texto);
+        horista.setHorasAula(Integer.parseInt(texto));
         texto=nValorHorista.getText().toString();
-        Double valor=Double.parseDouble(texto);
-        Double total=valor*horas;
+        horista.setValorHoraAula(Double.parseDouble(texto));
+        Double total=horista.getValorHoraAula()*horista.getHorasAula();
         saida.setText(total.toString());
     }
 
@@ -100,13 +106,13 @@ public class MainActivity extends AppCompatActivity {
         String texto;
 
         texto=nSalario.getText().toString();
-        double salario=Double.parseDouble(texto);
+        titular.setSalario(Double.parseDouble(texto));
 
         texto=nTempoAnos.getText().toString();
-        double anos=Integer.parseInt(texto);
-        double bonus= (anos/5)*0.05;
+        titular.setAnosInstituicao(Integer.parseInt(texto));
+        double bonus= (titular.getAnosInstituicao()/5)*0.05;
 
-        Double total=salario*(bonus+1);
+        Double total=titular.getSalario()*(bonus+1);
         saida.setText(total.toString());
     }
 }

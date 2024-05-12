@@ -9,6 +9,11 @@ public class ProfessorTitular extends Professor{
         super();
     }
 
+    @Override
+    public void calcSalario() {
+
+    }
+
     public int getAnosInstituicao() {
         return anosInstituicao;
     }

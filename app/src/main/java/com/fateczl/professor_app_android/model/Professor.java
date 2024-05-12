@@ -33,7 +33,5 @@ public abstract class Professor {
         this.idade = idade;
     }
 
-    public void calcSalario(){
-
-    }
+    public abstract void calcSalario();
 }

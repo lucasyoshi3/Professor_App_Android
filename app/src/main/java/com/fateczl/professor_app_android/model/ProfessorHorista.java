@@ -9,6 +9,11 @@ public class ProfessorHorista extends Professor{
         super();
     }
 
+    @Override
+    public void calcSalario() {
+
+    }
+
     public int getHorasAula() {
         return horasAula;
     }
